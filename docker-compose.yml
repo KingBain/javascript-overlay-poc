@@ -5,9 +5,3 @@ services:
     image: ghcr.io/kingbain/javascript-overlay-poc:latest
     ports:
       - "80:80"
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
